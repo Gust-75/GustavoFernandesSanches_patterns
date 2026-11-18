@@ -10,13 +10,12 @@ import ecommerce.strategy.FixedDiscount;
 import ecommerce.strategy.NoDiscount;
 import ecommerce.strategy.PercentageDiscount;
 public class Main {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Logger logger = new LegacyLoggerAdapter(new LegacyLogger());
         CheckoutService checkout = new CheckoutService(logger);
         new Menu(checkout, () -> executarCenarios(checkout)).executar();
     }
     private static void executarCenarios(CheckoutService checkout) {
-        System.out.println();
         // Cenário 1: computador básico, sem desconto
         Computador basico = new ComputadorBuilder()
                 .processador("Intel Core i5", 1000.0)
